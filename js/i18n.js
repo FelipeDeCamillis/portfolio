@@ -3,6 +3,7 @@
 // Objeto com todas as traduções
 const translations = {
     pt: {
+        'page-title': 'Portfólio Felipe De Camillis',
         'lang-pt': 'Português',
         'lang-en': 'English',
         'lang-es': 'Español',
@@ -28,6 +29,7 @@ const translations = {
         'footer-text': '© 2025 Felipe de Camillis. Construído com paixão e código.'
     },
     en: {
+        'page-title': 'Felipe De Camillis Portfolio',
         'lang-pt': 'Português',
         'lang-en': 'English',
         'lang-es': 'Español',
@@ -53,6 +55,7 @@ const translations = {
         'footer-text': '© 2025 Felipe de Camillis. Built with passion and code.'
     },
     es: {
+        'page-title': 'Portafolio Felipe De Camillis',
         'lang-pt': 'Português',
         'lang-en': 'English',
         'lang-es': 'Español',
@@ -78,6 +81,7 @@ const translations = {
         'footer-text': '© 2025 Felipe de Camillis. Construido con pasión y código.'
     },
     zh: {
+        'page-title': 'Felipe De Camillis 作品集',
         'lang-pt': 'Português',
         'lang-en': 'English',
         'lang-es': 'Español',
@@ -199,6 +203,10 @@ function applyTranslations(lang) {
     elements.forEach(element => {
         const key = element.getAttribute('data-key');
         if (langTranslations && langTranslations[key]) {
+            // Se for o título da página, atualizar o document.title também
+            if (key === 'page-title') {
+                document.title = langTranslations[key];
+            }
             element.textContent = langTranslations[key];
         }
     });
